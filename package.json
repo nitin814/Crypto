@@ -1,0 +1,25 @@
+{
+  "name": "cryptography",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "crypto-js": "^4.2.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "express-session": "^1.18.0",
+    "html5-qrcode": "^2.3.8",
+    "jsqr": "^1.4.0",
+    "mongoose": "^8.2.1",
+    "path": "^0.12.7",
+    "peer": "^1.0.2",
+    "socket.io": "^4.7.5",
+    "ws": "^8.16.0"
+  }
+}

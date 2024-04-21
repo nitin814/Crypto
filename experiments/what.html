@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="steganography.min.js"></script>
+    <div class="form">
+      
+        <ul class="tab-group">
+          <li class="tab active"><a href="#generateqr">Generate QR</a></li>
+          <li class="tab"><a href="#uploadqr">Upload QR</a></li>
+          <li class="tab"><a href="#getqr">Get QR</a></li>
+          <li class="tab"><a href="#scanqr">Scan QR</a></li>
+        </ul>
+        
+        <div class="tab-content">
+          <div id="generateqr">  
+            <div id="generator-container"> 
+            <h1>Generate QR</h1>
+            <form id="qrForm">
+                <div class="top-row">
+                  <div class="field-wrap">
+                    <label for="accountNumber">
+                      Account Number<span class="req">*</span>
+                    </label>
+                    <input type="text" id="accountNumber" name="accountNumber" required autocomplete="off" />
+                  </div>
+              
+                  <div class="field-wrap">
+                    <label for="mc">
+                      MC (4-digit PIN)<span class="req">*</span>
+                    </label>
+                    <input type="number" id="mc" name="mc" min="1000" max="9999" required autocomplete="off" />
+                  </div>
+                </div>
+              
+                <div class="field-wrap">
+                  <label for="mode">
+                    Mode (2-digit PIN)<span class="req">*</span>
+                  </label>
+                  <input type="number" id="mode" name="mode" min="10" max="99" required autocomplete="off" />
+                </div>
+              
+                <button type="submit" class="button button-block">Generate QR Code</button>
+              </form>
+                <div id="qrCodeInfo" class="field-wrap" style="color: white;"></div>
+                <div id="qrCodeContainer" style="width: 150px; height: 150px; " ></div>
+
+                <div id="buttonContainer1" style="display: none;">
+                        <button id="uploadCoverBtn1" style="display: none;">Upload Cover Image</button>
+                        <img id="coverImage1"  style="display: none; max-width: 300px; max-height: 500px; " />
+                        <button id="sendImageBtn1" onclick="sendImage1()" ostyle="display: none;">Decrypt and send Image</button>
+                </div>
+                <div id="fish1" style="display: none;">
+                    <img id="stegoImage1" src="" alt="" />
+                </div>
+                </div>           
+              </div>        
+          
+          <div id="uploadqr" style="display: none;">   
+            <div id="scanner-container" class="field-wrap">
+                <input type="file" id="uploadingqr" class="req" accept="image/*" required>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div id="output"></div>
+                <img id="uploadedImage"  style="display: none; max-width: 300px; max-height: 500px; " />
+                
+                <div id="buttonContainer" style="display: none;">
+                    <button id="uploadCoverBtn" style="display: none;">Upload Cover Image</button>
+                    <img id="coverImage"  style="display: none; max-width: 300px; max-height: 500px;" />
+                    <button id="sendImageBtn" onclick="sendImage()" style="display: none;">Decrypt and send Image</button>
+                </div>
+                <div id="fish" style="display: none;">
+                    <img id="stegoImage" src="" alt="" />
+                </div>
+            </div>                          
+          </div>
+
+          <div id="getqr" style="display: none;">
+            <div id="receivedImages"></div>
+          </div>
+
+          <div id="scanqr" style="display: none;">
+            <div class="field-wrap">
+              <input type="file" id="scanningqr" class="req" accept="image/*" required>
+              <canvas id="canvasscan" style="display: none;"></canvas>
+              <img id="showqrcode"  style="display: none; max-width: 300px; max-height: 500px; " />
+              <div id="outputscan" style="color: white; max-width: 300px; overflow:initial;"></div>
+            </div>   
+          </div>
+        </div>
+    </div>
+    <script src="script.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
+    <!-- Include FileSaver.js for saving files -->
+    <script src="https://cdn.jsdelivr.net/npm/file-saver/dist/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
+</body>
+</html>
